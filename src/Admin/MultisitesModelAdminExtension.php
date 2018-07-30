@@ -7,6 +7,8 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Extension;
+use Symbiote\Multisites\Multisites;
+use Symbiote\Multisites\Model\Site;
 /**
  * MultisitesModelAdminExtension
  *
@@ -32,7 +34,7 @@ class MultisitesModelAdminExtension extends Extension {
 	 * b) The current site, if the current member is a manager of that site
 	 * c) The first site that the current member is a manager of
 	 **/
-	public function onAfterInit(){	
+	public function onAfterInit(){
 		if($this->modelIsMultiSitesAware()) {
 
 			if($siteID = $this->owner->getRequest()->requestVar('SiteID')){
